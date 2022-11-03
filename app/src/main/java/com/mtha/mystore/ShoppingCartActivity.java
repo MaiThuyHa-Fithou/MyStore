@@ -5,8 +5,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ImageView;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +28,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         rcvCartItems.setLayoutManager(layoutManager);
         rcvCartItems.setHasFixedSize(true);
         productViewModel = new ViewModelProvider(ShoppingCartActivity.this).get(ProductViewModel.class);
-        cartItemList =getIntent().getExtras().getParcelableArrayList("list");
+        cartItemList =(ArrayList<CartItem>)getIntent().getExtras().get("list");
         shoppingCartAdapter= new ShoppingCartAdapter(ShoppingCartActivity.this,cartItemList);
         rcvCartItems.setAdapter(shoppingCartAdapter);
     }

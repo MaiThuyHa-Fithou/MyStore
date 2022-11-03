@@ -38,7 +38,7 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         CartItem cartItem = cartItemList.get(position);
         holder.product_name.setText(cartItem.getProduct().getName());
         holder.product_price.setText(cartItem.getProduct().getPrice()+"");
-        holder.product_quantity.setText(cartItem.getQuantity());
+        holder.product_quantity.setText(cartItem.getQuantity()+"");
         loadImage(holder.product_image,cartItem.getProduct().getImageUrl());
 
     }

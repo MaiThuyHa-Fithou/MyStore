@@ -1,21 +1,18 @@
 package com.mtha.mystore;
 
 
-import android.os.Build;
 import android.os.Parcel;
-import android.os.Parcelable;
-
 import androidx.annotation.NonNull;
-
-import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.DiffUtil;
+import java.io.Serializable;
 
 
-public class Product implements Parcelable {
+public class Product implements Serializable {
     private String id;
     private String name;
     private double price;
     private String imageUrl;
+
 
     protected Product(Parcel in) {
         id = in.readString();
@@ -23,19 +20,6 @@ public class Product implements Parcelable {
         price = in.readDouble();
         imageUrl = in.readString();
     }
-
-    public static final Creator<Product> CREATOR = new Creator<Product>() {
-        @Override
-        public Product createFromParcel(Parcel in) {
-            return new Product(in);
-        }
-
-        @Override
-        public Product[] newArray(int size) {
-            return new Product[size];
-        }
-    };
-
     public String getId() {
         return id;
     }
@@ -100,19 +84,4 @@ public class Product implements Parcelable {
             return oldItem.equals(newItem);
         }
     };
-
-    @Override
-    public int describeContents() {
-        return this.hashCode();
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.Q)
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(id);
-        parcel.writeString(name);
-        parcel.writeString(imageUrl);
-        parcel.writeDouble(price);
-
-    }
 }

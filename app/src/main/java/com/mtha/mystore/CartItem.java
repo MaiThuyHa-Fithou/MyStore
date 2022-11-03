@@ -1,13 +1,13 @@
 package com.mtha.mystore;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.DiffUtil;
 
-public class CartItem implements Parcelable {
+import java.io.Serializable;
+
+public class CartItem implements Serializable {
     Product product;
     int quantity;
 
@@ -22,23 +22,6 @@ public class CartItem implements Parcelable {
     public CartItem(Product product) {
         this.product = product;
     }
-
-    protected CartItem(Parcel in) {
-        quantity = in.readInt();
-    }
-
-    public static final Creator<CartItem> CREATOR = new Creator<CartItem>() {
-        @Override
-        public CartItem createFromParcel(Parcel in) {
-            return new CartItem(in);
-        }
-
-        @Override
-        public CartItem[] newArray(int size) {
-            return new CartItem[size];
-        }
-    };
-
     public Product getProduct() {
         return product;
     }
@@ -77,15 +60,4 @@ public class CartItem implements Parcelable {
             return oldItem.equals(newItem);
         }
     };
-
-    @Override
-    public int describeContents() {
-        return this.hashCode();
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(quantity);
-        parcel.writeValue(product);
-    }
 }

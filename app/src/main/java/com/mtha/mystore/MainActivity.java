@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void onShowCart(View view) {
         Intent intent = new Intent(MainActivity.this,ShoppingCartActivity.class);
+        ArrayList<CartItem> cart = (ArrayList<CartItem>) productViewModel.getCart().getValue();
         Bundle bundle = new Bundle();
-
-        bundle.putParcelableArrayList("list", (ArrayList<CartItem>) productViewModel.getCart().getValue());
+        bundle.putSerializable("list", cart);
         intent.putExtras(bundle);
         startActivity(intent);
     }

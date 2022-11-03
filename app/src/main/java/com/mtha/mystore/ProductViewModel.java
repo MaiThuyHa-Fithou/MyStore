@@ -1,5 +1,7 @@
 package com.mtha.mystore;
 
+import android.os.Parcel;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -28,6 +30,10 @@ public class ProductViewModel extends ViewModel {
 
      public boolean addItemToCart(Product product){
           return shoppingCart.addItemToCart(product);
+     }
+     public boolean addItemToCart(Parcel in){
+
+          return false;
      }
 
      public void removeItemFromCart(CartItem cartItem){
