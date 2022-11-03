@@ -48,12 +48,29 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/basketButton"
-            android:layout_width="wrap_content"
+            android:layout_width="67dp"
             android:layout_height="wrap_content"
+            android:onClick="onShowCart"
             android:src="@drawable/ic_shopping_basket"
             android:tint="@android:color/white"
             app:fabSize="normal"
             tools:ignore="SpeakableTextPresentCheck" />
 
+        <TextView
+            android:id="@+id/cart_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@id/basketButton"
+            android:layout_alignRight="@id/basketButton"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/item_count"
+            android:elevation="50dp"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            tools:targetApi="lollipop" />
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
